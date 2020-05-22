@@ -12,7 +12,7 @@ apt-get install -y vim && \
 apt-get install -y libturbojpeg
 
 #for python api
-RUN pip3 install numpy opencv-python setuptools PyTurboJPEG Flask-Cors
+RUN pip3 install numpy opencv-python setuptools Flask-Cors
 
 #replace cmake as old version has CUDA variable bugs
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.16.0/cmake-3.16.0-Linux-x86_64.tar.gz && \
@@ -30,4 +30,5 @@ RUN cmake -DBUILD_PYTHON=ON .. && make -j `nproc`
 
 #run the app
 WORKDIR /social-distancing
+RUN pip3 install PyTurboJPEG
 RUN python3 app.py
