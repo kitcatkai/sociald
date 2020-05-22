@@ -30,6 +30,7 @@ RUN cmake -DBUILD_PYTHON=ON .. && make -j `nproc`
 
 #run the app
 WORKDIR /social-distancing
-RUN pip3 install PyTurboJPEG
+RUN pip3 install PyTurboJPEG && \
+chmod +x run.sh
 
 CMD ["./run.sh"]
